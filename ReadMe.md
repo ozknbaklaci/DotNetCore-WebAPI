@@ -8,3 +8,6 @@ Installing Entity Framework Core  => dotnet add package Microsoft.EntityFramewor
 Installing ef dotnet tool => dotnet tool install --global dotnet-ef
 Installing Entity Framework Core Design => dotnet add package Microsoft.EntityFrameworkCore.Design
 Check tools Entity Framework  => dotnet ef
+Ef Help => dotnet ef -h
+First Migrations InitialCreate =>  dotnet ef migrations add InitialCreate
+Database Update and Create DataContext Table => dotnet ef database update
