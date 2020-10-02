@@ -1,6 +1,10 @@
 Help => dotnet -h
 New Project Help => dotnet new -h  
 New .net core Api Project =>  dotnet new webapi
-Add Project Package => dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection 
+Installing AutoMapper  => dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection 
 Project Run => dotnet run    
 Project Watch Run => dotnet watch run
+Installing Entity Framework Core  => dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+Installing ef dotnet tool => dotnet tool install --global dotnet-ef
+Installing Entity Framework Core Design => dotnet add package Microsoft.EntityFrameworkCore.Design
+Check tools Entity Framework  => dotnet ef
