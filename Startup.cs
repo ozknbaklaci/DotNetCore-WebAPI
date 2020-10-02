@@ -38,7 +38,7 @@ namespace DotNetCore_WebAPI
 
             //app.UseHttpsRedirection();
 
-            app.UseRouting(); 
+            app.UseRouting();
 
             app.UseAuthorization();
 
