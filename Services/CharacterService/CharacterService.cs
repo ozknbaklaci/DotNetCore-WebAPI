@@ -64,13 +64,16 @@ namespace DotNetCore_WebAPI.Services.CharacterService
             ServiceResponse<GetCharacterDto> serviceResponse = new ServiceResponse<GetCharacterDto>();
             try
             {
-                Character character = characters.FirstOrDefault(c => c.Id == updateCharacter.Id);
+                Character character = await _context.Characters.FirstOrDefaultAsync(c => c.Id == updateCharacter.Id);
                 character.Name = updateCharacter.Name;
                 character.Class = updateCharacter.Class;
                 character.Defense = updateCharacter.Defense;
                 character.HitPoints = updateCharacter.HitPoints;
                 character.Intelligence = updateCharacter.Intelligence;
                 character.Strength = updateCharacter.Strength;
+
+                _context.Characters.Update(character);
+                await _context.SaveChangesAsync();
 
                 serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
             }
