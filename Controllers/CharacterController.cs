@@ -25,5 +25,12 @@ namespace DotNetCore_WebAPI.Controllers
         {
             return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
+        [HttpPost]
+        public IActionResult AddCharacter(Character character)
+        {
+            characters.Add(character);
+
+            return Ok(characters);
+        }
     }
 }
