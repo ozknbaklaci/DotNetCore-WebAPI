@@ -36,5 +36,16 @@ namespace DotNetCore_WebAPI.Controllers
         {
             return Ok(await _characterService.AddCharacter(character));
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCharacter(UpdateCharacterDto character)
+        {
+            ServiceResponse<GetCharacterDto> response = await _characterService.UpdateCharacter(character);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace DotNetCore_WebAPI.Services.CharacterService
     {
         Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
         Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
-        Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto character);
+        Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
+        Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updateCharacter);
     }
 }
