@@ -11,3 +11,4 @@ Check tools Entity Framework  => dotnet ef
 Ef Help => dotnet ef -h
 First Migrations InitialCreate =>  dotnet ef migrations add InitialCreate
 Database Update and Create DataContext Table => dotnet ef database update
+Add New Table Migrations => dotnet ef migrations add User  ==> Database Update Table => dotnet ef database update
