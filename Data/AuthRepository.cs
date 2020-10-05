@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using DotNetCore_WebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCore_WebAPI.Data
 {
@@ -17,22 +18,36 @@ namespace DotNetCore_WebAPI.Data
 
         public async Task<ServiceResponse<int>> Register(User user, string password)
         {
+            ServiceResponse<int> response = new ServiceResponse<int>();
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            if (await UserExists(user.UserName))
+            {
+                response.Success = false;
+                response.Message = "User already exist.";
+
+                return response;
+            }
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
-            ServiceResponse<int> response = new ServiceResponse<int>();
+
             response.Data = user.Id;
 
             return response;
         }
 
-        public Task<bool> UserExists(string userName)
+        public async Task<bool> UserExists(string userName)
         {
-            throw new System.NotImplementedException();
+            if (await _context.Users.AnyAsync(x => x.UserName.ToLower() == userName.ToLower()))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
