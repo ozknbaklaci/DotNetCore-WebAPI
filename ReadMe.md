@@ -13,3 +13,6 @@ First Migrations InitialCreate =>  dotnet ef migrations add InitialCreate
 Database Update and Create DataContext Table => dotnet ef database update
 Add New Table Migrations => dotnet ef migrations add User  ==> Database Update Table => dotnet ef database update
 Relation Migration => dotnet ef migrations add UserCharacterRelation
+Identity Models Tokens => dotnet add package Microsoft.IdentityModel.Tokens --version 6.7.1
+Identity Model Tokens Jwt => dotnet add package System.IdentityModel.Tokens.Jwt --version 6.7.1
+Microsoft AspNetCore Authentication JwtBearer => dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 3.1.8
