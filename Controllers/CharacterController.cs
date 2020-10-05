@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using DotNetCore_WebAPI.Dtos.Character;
 using DotNetCore_WebAPI.Models;
 using DotNetCore_WebAPI.Services.CharacterService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetCore_WebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CharacterController : ControllerBase
@@ -17,7 +19,7 @@ namespace DotNetCore_WebAPI.Controllers
         {
             _characterService = characterService;
         }
-
+        
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
