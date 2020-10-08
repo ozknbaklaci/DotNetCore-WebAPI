@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DotNetCore_WebAPI.Data;
 using DotNetCore_WebAPI.Dtos.Character;
 using DotNetCore_WebAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCore_WebAPI.Services.CharacterService
@@ -13,13 +15,19 @@ namespace DotNetCore_WebAPI.Services.CharacterService
     public class CharacterService : ICharacterService
     {
         private readonly DataContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
 
-        public CharacterService(IMapper mapper, DataContext context)
+        public CharacterService(IMapper mapper, DataContext context, IHttpContextAccessor httpContextAccessor)
         {
+            _httpContextAccessor = httpContextAccessor;
             _context = context;
             _mapper = mapper;
         }
+
+
+        private int GetUserId() =>
+            int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter)
         {
@@ -34,11 +42,11 @@ namespace DotNetCore_WebAPI.Services.CharacterService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId)
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
         {
             ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
 
-            List<Character> dbCharacters = await _context.Characters.Where(c=> c.User.Id == userId).ToListAsync();
+            List<Character> dbCharacters = await _context.Characters.Where(c => c.User.Id == GetUserId()).ToListAsync();
             serviceResponse.Data = (dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c))).ToList();
 
             return serviceResponse;
