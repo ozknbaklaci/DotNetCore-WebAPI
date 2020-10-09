@@ -5,12 +5,10 @@ using DotNetCore_WebAPI.Models;
 using DotNetCore_WebAPI.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using System.Linq;
 
 namespace DotNetCore_WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Player,Admin")]
     [ApiController]
     [Route("[controller]")]
     public class CharacterController : ControllerBase
