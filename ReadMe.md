@@ -4,7 +4,7 @@ New .net core Api Project =>  dotnet new webapi
 Installing AutoMapper  => dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection 
 Project Run => dotnet run    
 Project Watch Run => dotnet watch run
-Installing Entity Framework Core  => dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+Installing Entity Framework Core SqlServer => dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 Installing ef dotnet tool => dotnet tool install --global dotnet-ef
 Installing Entity Framework Core Design => dotnet add package Microsoft.EntityFrameworkCore.Design
 Check tools Entity Framework  => dotnet ef
@@ -25,5 +25,8 @@ Add New Table Migrations => dotnet ef migrations add Skill =>after ==> Database 
 FightProperties Migration => dotnet ef migrations add FightProperties 
 
  Role Migrations => dotnet ef migrations add Role =>  after ==> Database Update Table => dotnet ef database update
+
+Installing Entity Framework Core Sqlite => dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+
 
 
