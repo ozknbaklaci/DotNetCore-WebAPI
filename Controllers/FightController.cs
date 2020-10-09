@@ -21,11 +21,17 @@ namespace DotNetCore_WebAPI.Controllers
         {
             return Ok(await _fightService.WeaponAttack(request));
         }
-        
+
         [HttpPost("Skill")]
         public async Task<IActionResult> SkillAttack(SkillAttackDto request)
         {
             return Ok(await _fightService.SkillAttack(request));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Figth(FightRequestDto request)
+        {
+            return Ok(await _fightService.Fight(request));
         }
     }
 }
