@@ -20,4 +20,6 @@ Microsoft AspNetCore Authentication JwtBearer => dotnet add package Microsoft.As
 Weapon Migration => dotnet ef migrations add Weapon (Error!! => The child/dependent side could not be determined for the one-to-one relationship between 'Character.Weapon' and 'Weapon.Character'. To identify the child/dependent side of the relationship, configure the foreign key property. If these navigations should not be part of the same relationship configure them without specifying the inverse. See http://go.microsoft.com/fwlink/?LinkId=724062 for more details.) Adding Model CharacterId property. 
 Add New Table Migrations => dotnet ef migrations add Weapon =>after ==> Database Update Table => dotnet ef database update
 
+Add New Table Migrations => dotnet ef migrations add Skill =>after ==> Database Update Table => dotnet ef database update
+
 
