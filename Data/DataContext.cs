@@ -20,6 +20,9 @@ namespace DotNetCore_WebAPI.Data
         {
             modelBuilder.Entity<CharacterSkill>()
             .HasKey(cs => new { cs.CharacterId, cs.SkillId });
+
+                modelBuilder.Entity<User>()
+            .Property(user => user.Role).HasDefaultValue("Player");
         }
     }
 }
