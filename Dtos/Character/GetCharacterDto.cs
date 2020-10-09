@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using DotNetCore_WebAPI.Dtos.Skill;
 using DotNetCore_WebAPI.Dtos.Weapon;
 using DotNetCore_WebAPI.Models;
 
@@ -13,5 +15,6 @@ namespace DotNetCore_WebAPI.Dtos.Character
         public int Intelligence { get; set; } = 10;
         public RpgClass Class { get; set; } = RpgClass.Knigth;
         public GetWeaponDto Weapon { get; set; }
+         public List<GetSkillDto> Skills  { get; set; }
     }
 }

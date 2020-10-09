@@ -2,6 +2,7 @@ using System.Text;
 using AutoMapper;
 using DotNetCore_WebAPI.Data;
 using DotNetCore_WebAPI.Services.CharacterService;
+using DotNetCore_WebAPI.Services.CharacterSkillService;
 using DotNetCore_WebAPI.Services.WeaponService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -45,6 +46,7 @@ namespace DotNetCore_WebAPI
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IWeaponService, WeaponService>();
+            services.AddScoped<ICharacterSkillService, CharacterSkillService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
