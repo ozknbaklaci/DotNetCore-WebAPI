@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using DotNetCore_WebAPI.Dtos.Character;
+using DotNetCore_WebAPI.Dtos.Fight;
 using DotNetCore_WebAPI.Dtos.Skill;
 using DotNetCore_WebAPI.Dtos.Weapon;
 using DotNetCore_WebAPI.Models;
@@ -16,6 +17,7 @@ namespace DotNetCore_WebAPI
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character, HighScoreDto>();
         }
     }
 }
