@@ -46,7 +46,7 @@ namespace DotNetCore_WebAPI.Data
         public async Task<ServiceResponse<int>> Register(User user, string password)
         {
             ServiceResponse<int> response = new ServiceResponse<int>();
-            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+            Utility.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
             if (await UserExists(user.UserName))
             {
@@ -75,15 +75,6 @@ namespace DotNetCore_WebAPI.Data
             }
 
             return false;
-        }
-
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
         }
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
