@@ -1,3 +1,4 @@
+using DotNetCore_WebAPI.Dtos.Weapon;
 using DotNetCore_WebAPI.Models;
 
 namespace DotNetCore_WebAPI.Dtos.Character
@@ -11,5 +12,6 @@ namespace DotNetCore_WebAPI.Dtos.Character
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public RpgClass Class { get; set; } = RpgClass.Knigth;
+        public GetWeaponDto Weapon { get; set; }
     }
 }
