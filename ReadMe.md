@@ -31,5 +31,6 @@ Sqlite**
 Installing Entity Framework Core Sqlite => dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 First Migrations Initial =>  dotnet ef migrations add Initial
 Create Database File  => dotnet ef database update
+Downloand Sqlite Browser => https://sqlitebrowser.org/dl/
 **Sqlite
 
