@@ -17,9 +17,15 @@ namespace DotNetCore_WebAPI.Controllers
         }
 
         [HttpPost("Weapon")]
-        public async Task<IActionResult> AddCharacterSkill(WeaponAttackDto request)
+        public async Task<IActionResult> WeaponAttack(WeaponAttackDto request)
         {
             return Ok(await _fightService.WeaponAttack(request));
+        }
+        
+        [HttpPost("Skill")]
+        public async Task<IActionResult> SkillAttack(SkillAttackDto request)
+        {
+            return Ok(await _fightService.SkillAttack(request));
         }
     }
 }
