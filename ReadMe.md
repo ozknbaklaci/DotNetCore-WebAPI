@@ -22,4 +22,6 @@ Add New Table Migrations => dotnet ef migrations add Weapon =>after ==> Database
 
 Add New Table Migrations => dotnet ef migrations add Skill =>after ==> Database Update Table => dotnet ef database update
 
+FightProperties Migration => dotnet ef migrations add FightProperties 
+
 

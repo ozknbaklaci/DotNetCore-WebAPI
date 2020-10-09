@@ -15,6 +15,9 @@ namespace DotNetCore_WebAPI.Dtos.Character
         public int Intelligence { get; set; } = 10;
         public RpgClass Class { get; set; } = RpgClass.Knigth;
         public GetWeaponDto Weapon { get; set; }
-         public List<GetSkillDto> Skills  { get; set; }
+        public List<GetSkillDto> Skills { get; set; }
+        public int Fights { get; set; }
+        public int Victories { get; set; }
+        public int Defeats { get; set; }
     }
 }
