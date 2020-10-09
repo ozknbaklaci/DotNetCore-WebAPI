@@ -26,7 +26,10 @@ FightProperties Migration => dotnet ef migrations add FightProperties
 
  Role Migrations => dotnet ef migrations add Role =>  after ==> Database Update Table => dotnet ef database update
 
+
+Sqlite**
 Installing Entity Framework Core Sqlite => dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-
-
+First Migrations Initial =>  dotnet ef migrations add Initial
+Create Database File  => dotnet ef database update
+**Sqlite
 
