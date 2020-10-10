@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetCore_WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201009203553_Initial")]
-    partial class Initial
+    [Migration("20201010124004_SkillSeeding")]
+    partial class SkillSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,7 @@ namespace DotNetCore_WebAPI.Migrations
                     b.Property<int>("Strength")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Victories")
@@ -91,6 +91,26 @@ namespace DotNetCore_WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Skills");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Damage = 30,
+                            Name = "Fireball"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Damage = 20,
+                            Name = "Frenzy"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Damage = 50,
+                            Name = "Blizzard"
+                        });
                 });
 
             modelBuilder.Entity("DotNetCore_WebAPI.Models.User", b =>
@@ -146,7 +166,9 @@ namespace DotNetCore_WebAPI.Migrations
                 {
                     b.HasOne("DotNetCore_WebAPI.Models.User", "User")
                         .WithMany("Characters")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DotNetCore_WebAPI.Models.CharacterSkill", b =>
