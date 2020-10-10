@@ -36,5 +36,7 @@ Downloand Sqlite Browser => https://sqlitebrowser.org/dl/
 SkillSeeding Migration => dotnet ef migrations add SkillSeeding => after ==> Database Update Table => dotnet ef database update ERROR (SQLite does not support this migration operation ('DropForeignKeyOperation'). For more information, see http://go.microsoft.com/fwlink/?LinkId=723262.) Çözüm => Migrations Klasörünü sil. dotnetrpg.db database'i sil.
 Sonra aynı işlemleri tekrarla => dotnet ef migrations add SkillSeeding => after ==> Database Update Table => dotnet ef database update
 
+
+FinalSeeding Migration => dotnet ef migrations add FinalSeeding => after ==> Database Update Table => dotnet ef database update
 **Sqlite
 
